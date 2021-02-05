@@ -5,5 +5,7 @@ RUN apt install nodejs
 
 COPY . .
 
+RUN npm install
+
 RUN BACKGROUND node index.js
 EXPOSE WEBSITE http://localhost:3000

@@ -1,0 +1,14 @@
+#This is an example LayerCI configuration for NodeJS 10.x!
+FROM vm/ubuntu:18.04
+
+# To note: Layerfiles create entire VMs, *not* containers!
+
+# Install node 10
+RUN curl -sL https://deb.nodesource.com/setup_10.x | bash
+RUN apt install nodejs
+RUN npm install -g http-server
+
+COPY . .
+
+RUN BACKGROUND node index.js -p 3000
+EXPOSE WEBSITE http://localhost:3000
